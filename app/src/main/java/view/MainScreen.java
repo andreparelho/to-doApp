@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package gradleproject1.view;
+
+
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -90,7 +88,6 @@ public class MainScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 600));
-        setPreferredSize(new java.awt.Dimension(580, 600));
 
         JPanelCabecalho.setBackground(new java.awt.Color(0, 51, 255));
 
@@ -114,60 +111,63 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelCabecalhoLayout.setHorizontalGroup(
             JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(JLabelCabecalhoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JLabelCabecalhoTitulo)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(JLabelCabecalhoSubtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(127, 127, 127)
+                .addComponent(JLabelCabecalhoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JLabelCabecalhoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
+                .addComponent(JLabelCabecalhoSubtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         JPanelCabecalhoLayout.setVerticalGroup(
             JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
                 .addGroup(JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLabelCabecalhoIMG)
-                    .addComponent(JLabelCabecalhoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(JLabelCabecalhoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JLabelCabecalhoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelCabecalhoSubtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addGap(14, 14, 14))
         );
 
         JPanelProjeto.setBackground(new java.awt.Color(0, 51, 255));
 
-        JLabelProjetoTitulo.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        JLabelProjetoTitulo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         JLabelProjetoTitulo.setForeground(new java.awt.Color(255, 255, 255));
         JLabelProjetoTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelProjetoTitulo.setText("Projetos");
 
         JLabelProjetoIMG.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        JLabelProjetoIMG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelProjetoIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-mais-20.png")); // NOI18N
         JLabelProjetoIMG.setMaximumSize(new java.awt.Dimension(69, 69));
         JLabelProjetoIMG.setMinimumSize(new java.awt.Dimension(69, 69));
         JLabelProjetoIMG.setPreferredSize(new java.awt.Dimension(69, 69));
+        JLabelProjetoIMG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelProjetoIMGMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelProjetoLayout = new javax.swing.GroupLayout(JPanelProjeto);
         JPanelProjeto.setLayout(JPanelProjetoLayout);
         JPanelProjetoLayout.setHorizontalGroup(
             JPanelProjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelProjetoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPanelProjetoLayout.setVerticalGroup(
             JPanelProjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelProjetoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+            .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         JPanelTarefa.setBackground(new java.awt.Color(0, 51, 255));
@@ -184,11 +184,11 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelTarefaLayout.setHorizontalGroup(
             JPanelTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelTarefaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(50, 50, 50))
         );
         JPanelTarefaLayout.setVerticalGroup(
             JPanelTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +201,7 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
         );
 
-        JPanelLista.setBackground(new java.awt.Color(102, 204, 255));
+        JPanelLista.setBackground(new java.awt.Color(255, 255, 255));
 
         JListProjetos.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         JListProjetos.setModel(new javax.swing.AbstractListModel<String>() {
@@ -219,11 +219,11 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelLista.setLayout(JPanelListaLayout);
         JPanelListaLayout.setHorizontalGroup(
             JPanelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JScrollPaneProjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(JScrollPaneProjetos)
         );
         JPanelListaLayout.setVerticalGroup(
             JPanelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JScrollPaneProjetos)
+            .addComponent(JScrollPaneProjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
         );
 
         JPanelTabelaTarefas.setBackground(new java.awt.Color(255, 255, 255));
@@ -231,6 +231,24 @@ public class MainScreen extends javax.swing.JFrame {
         JTableTarefas.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         JTableTarefas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -268,13 +286,11 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelTabelaTarefas.setLayout(JPanelTabelaTarefasLayout);
         JPanelTabelaTarefasLayout.setHorizontalGroup(
             JPanelTabelaTarefasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelTabelaTarefasLayout.createSequentialGroup()
-                .addComponent(JScrollPaneTabelaTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(JScrollPaneTabelaTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         JPanelTabelaTarefasLayout.setVerticalGroup(
             JPanelTabelaTarefasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JScrollPaneTabelaTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+            .addComponent(JScrollPaneTabelaTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,18 +298,23 @@ public class MainScreen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(JPanelProjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(JPanelLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JPanelTabelaTarefas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JPanelTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JPanelProjeto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JPanelLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JPanelTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JPanelTabelaTarefas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(JPanelCabecalho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(JPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -307,6 +328,11 @@ public class MainScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JLabelProjetoIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelProjetoIMGMouseClicked
+        JDialogScreenProjeto jDialogScreenProjeto = new JDialogScreenProjeto(this, rootPaneCheckingEnabled);
+        jDialogScreenProjeto.setVisible(true);
+    }//GEN-LAST:event_JLabelProjetoIMGMouseClicked
 
     /**
      * @param args the command line arguments
@@ -354,10 +380,25 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelListaVazia;
     private javax.swing.JPanel JPanelProjeto;
     private javax.swing.JPanel JPanelTabelaTarefas;
+    private javax.swing.JPanel JPanelTabelaTarefas1;
+    private javax.swing.JPanel JPanelTabelaTarefas2;
+    private javax.swing.JPanel JPanelTabelaTarefas3;
+    private javax.swing.JPanel JPanelTabelaTarefas4;
+    private javax.swing.JPanel JPanelTabelaTarefas5;
     private javax.swing.JPanel JPanelTarefa;
     private javax.swing.JScrollPane JScrollPaneProjetos;
     private javax.swing.JScrollPane JScrollPaneTabelaTarefa;
+    private javax.swing.JScrollPane JScrollPaneTabelaTarefa1;
+    private javax.swing.JScrollPane JScrollPaneTabelaTarefa2;
+    private javax.swing.JScrollPane JScrollPaneTabelaTarefa3;
+    private javax.swing.JScrollPane JScrollPaneTabelaTarefa4;
+    private javax.swing.JScrollPane JScrollPaneTabelaTarefa5;
     private javax.swing.JTable JTableTarefas;
+    private javax.swing.JTable JTableTarefas1;
+    private javax.swing.JTable JTableTarefas2;
+    private javax.swing.JTable JTableTarefas3;
+    private javax.swing.JTable JTableTarefas4;
+    private javax.swing.JTable JTableTarefas5;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
