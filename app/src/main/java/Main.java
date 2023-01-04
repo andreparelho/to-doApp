@@ -49,7 +49,7 @@ public class Main {
         tarefa.setObservacoes("NOVA OBS");
         tarefaController.update(tarefa); */
 
-        //* --- TESTE DE DELETAR TAREFA
-        tarefaController.removeById(5);//*/
+        /* --- TESTE DE DELETAR TAREFA
+        tarefaController.removeById(5); */
     }
 }
