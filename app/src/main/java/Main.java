@@ -19,16 +19,16 @@ public class Main {
         Tarefa tarefa = new Tarefa();
         TarefaController tarefaController = new TarefaController();
 
-        // --- TESTE DE CRIAÇÃO DE UM PROJETO
+        /* --- TESTE DE CRIAÇÃO DE UM PROJETO
         projeto.setNome("NOVO PROJETO");
         projeto.setDescricao("DESCRIPTION");
-        projetoController.save(projeto);
+        projetoController.save(projeto);*/
 
-       /* --- TESTE DE UPDATE PROJETO
-        projeto.setProjetoID(6);
+       //* --- TESTE DE UPDATE PROJETO
+        projeto.setProjetoID(7);
         projeto.setNome("NOVO NOME DO PROJETO");
         projeto.setDescricao("DESCRICPTION NOVA");
-        projetoController.update(projeto); */
+        projetoController.update(projeto); //*/
 
         /* --- TESTE DE REMOVER PROJETO
         projetoController.removeById(6); */
