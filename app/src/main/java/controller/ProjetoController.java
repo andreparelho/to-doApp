@@ -27,7 +27,7 @@ public class ProjetoController {
             preparedStatement.setDate(3, new java.sql.Date(projeto.getDataCriacao().getTime()));
             preparedStatement.setDate(4, new java.sql.Date(projeto.getDataAtt().getTime()));
             preparedStatement.execute();
-        } catch (Exception exception) {
+        } catch (SQLException exception) {
             throw new RuntimeException("Erro ao salvar o projeto" + exception.getMessage(), exception);
         } finally {
             ConnectionDataBase.closeConnection(connection, preparedStatement);
@@ -53,7 +53,7 @@ public class ProjetoController {
             preparedStatement.setDate(4, new java.sql.Date(projeto.getDataAtt().getTime()));
             preparedStatement.setInt(5, projeto.getProjetoID());
             preparedStatement.execute();
-        } catch (Exception exception) {
+        } catch (SQLException exception) {
             throw new RuntimeException("Erro ao atualizar o projeto" + exception.getMessage(), exception);
         } finally {
             ConnectionDataBase.closeConnection(connection, preparedStatement);
@@ -70,7 +70,7 @@ public class ProjetoController {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, projetoID);
             preparedStatement.execute();
-        } catch (Exception exception) {
+        } catch (SQLException exception) {
             throw new RuntimeException("Erro ao deletar o projeto." + exception.getMessage(), exception);
         } finally {
             ConnectionDataBase.closeConnection(connection, preparedStatement);
@@ -99,7 +99,7 @@ public class ProjetoController {
                 projeto.setDataAtt(resultSet.getDate("data_att"));
                 projetos.add(projeto);
             }
-        } catch (Exception exception) {
+        } catch (SQLException exception) {
             throw new RuntimeException("Erro ao buscar a tabela" + exception.getMessage(), exception);
         } finally {
             ConnectionDataBase.closeConnection(connection, preparedStatement, resultSet);
