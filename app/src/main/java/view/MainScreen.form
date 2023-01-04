@@ -334,6 +334,10 @@
               <Image iconType="2" name="C:\Users\parel\Downloads\icons8-mais-20.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelTarefaIMGMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelTarefaIMGMouseEntered"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

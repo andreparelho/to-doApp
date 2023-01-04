@@ -18,10 +18,8 @@ public class JDialogScreenProjeto extends javax.swing.JDialog {
     
     public JDialogScreenProjeto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
-        
-        projetoController = new ProjetoController();
-        
+        initComponents(); 
+        projetoController = new ProjetoController();  
     }
 
     /**

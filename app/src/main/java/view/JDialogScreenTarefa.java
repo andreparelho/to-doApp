@@ -4,18 +4,27 @@
  */
 package view;
 
+import controller.TarefaController;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+import model.Projeto;
+import model.Tarefa;
+
 /**
  *
  * @author parel
  */
 public class JDialogScreenTarefa extends javax.swing.JDialog {
 
-    /**
-     * Creates new form JDialogScreenTarefa
-     */
+    TarefaController tarefaController;
+    Projeto projeto;
+    
     public JDialogScreenTarefa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        tarefaController = new TarefaController();
     }
 
     /**
@@ -27,106 +36,119 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        JPanelTarefa = new javax.swing.JPanel();
+        JLabelTarefaTitulo = new javax.swing.JLabel();
+        JLabelTarefaIMG = new javax.swing.JLabel();
+        JPanelDadosTarefa = new javax.swing.JPanel();
+        JLabelDadosNome = new javax.swing.JLabel();
+        JTextFieldNome = new javax.swing.JTextField();
+        JLabelDadoslDescricao = new javax.swing.JLabel();
+        JTextFieldDescricao = new javax.swing.JTextField();
+        JLabelDadosPrazo = new javax.swing.JLabel();
+        JFormattedTextFieldPrazo = new javax.swing.JFormattedTextField();
+        JLabelDadosObs = new javax.swing.JLabel();
+        JScrollPaneDadosObs = new javax.swing.JScrollPane();
+        JTextAreaObs = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        JPanelTarefa.setBackground(new java.awt.Color(51, 51, 255));
 
-        jLabel5.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel5.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Tarefas");
+        JLabelTarefaTitulo.setBackground(new java.awt.Color(0, 153, 153));
+        JLabelTarefaTitulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        JLabelTarefaTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelTarefaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabelTarefaTitulo.setText("Tarefas");
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-mais-20.png")); // NOI18N
+        JLabelTarefaIMG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabelTarefaIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-mais-20.png")); // NOI18N
+        JLabelTarefaIMG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelTarefaIMGMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout JPanelTarefaLayout = new javax.swing.GroupLayout(JPanelTarefa);
+        JPanelTarefa.setLayout(JPanelTarefaLayout);
+        JPanelTarefaLayout.setHorizontalGroup(
+            JPanelTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelTarefaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        JPanelTarefaLayout.setVerticalGroup(
+            JPanelTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        JPanelDadosTarefa.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel1.setText("Nome");
+        JLabelDadosNome.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        JLabelDadosNome.setText("Nome");
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel2.setText("Descrição");
+        JTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextFieldNomeActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel3.setText("Prazo");
+        JLabelDadoslDescricao.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        JLabelDadoslDescricao.setText("Descrição");
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel4.setText("Observações");
+        JLabelDadosPrazo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        JLabelDadosPrazo.setText("Prazo");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        JFormattedTextFieldPrazo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        JLabelDadosObs.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        JLabelDadosObs.setText("Observações");
+
+        JTextAreaObs.setColumns(20);
+        JTextAreaObs.setRows(5);
+        JScrollPaneDadosObs.setViewportView(JTextAreaObs);
+
+        javax.swing.GroupLayout JPanelDadosTarefaLayout = new javax.swing.GroupLayout(JPanelDadosTarefa);
+        JPanelDadosTarefa.setLayout(JPanelDadosTarefaLayout);
+        JPanelDadosTarefaLayout.setHorizontalGroup(
+            JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelDadosTarefaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                .addGroup(JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JTextFieldDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JTextFieldNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JScrollPaneDadosObs, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(JPanelDadosTarefaLayout.createSequentialGroup()
+                        .addGroup(JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLabelDadosNome)
+                            .addComponent(JLabelDadoslDescricao)
+                            .addComponent(JLabelDadosPrazo)
+                            .addComponent(JLabelDadosObs))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(JFormattedTextFieldPrazo))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        JPanelDadosTarefaLayout.setVerticalGroup(
+            JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelDadosTarefaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(JLabelDadosNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(JLabelDadoslDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(JLabelDadosPrazo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JFormattedTextFieldPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(JLabelDadosObs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1)
+                .addComponent(JScrollPaneDadosObs)
                 .addContainerGap())
         );
 
@@ -134,19 +156,46 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JPanelTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JPanelDadosTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPanelTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(JPanelDadosTarefa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JLabelTarefaIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseClicked
+        try {
+        Tarefa tarefa = new Tarefa();
+        projeto.setProjetoID(projeto.getProjetoID());
+        
+        tarefa.setNome(JTextFieldNome.getText());
+        tarefa.setDescricao(JTextFieldDescricao.getText());
+        tarefa.setObservacoes(JTextAreaObs.getText());
+        tarefa.setStatus(false);
+            
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date prazo = null;
+        prazo = dateFormat.parse(JFormattedTextFieldPrazo.getText());
+        tarefa.setPrazo(prazo);
+        
+        tarefaController.save(tarefa);
+        JOptionPane.showMessageDialog(rootPane, "Tarefa Salva! uhu");
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(rootPane, exception.getMessage());
+        }
+        this.dispose();
+    }//GEN-LAST:event_JLabelTarefaIMGMouseClicked
+
+    private void JTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextFieldNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,18 +240,22 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JFormattedTextField JFormattedTextFieldPrazo;
+    private javax.swing.JLabel JLabelDadosNome;
+    private javax.swing.JLabel JLabelDadosObs;
+    private javax.swing.JLabel JLabelDadosPrazo;
+    private javax.swing.JLabel JLabelDadoslDescricao;
+    private javax.swing.JLabel JLabelTarefaIMG;
+    private javax.swing.JLabel JLabelTarefaTitulo;
+    private javax.swing.JPanel JPanelDadosTarefa;
+    private javax.swing.JPanel JPanelTarefa;
+    private javax.swing.JScrollPane JScrollPaneDadosObs;
+    private javax.swing.JTextArea JTextAreaObs;
+    private javax.swing.JTextField JTextFieldDescricao;
+    private javax.swing.JTextField JTextFieldNome;
     // End of variables declaration//GEN-END:variables
+
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
+    }
 }
