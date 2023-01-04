@@ -35,19 +35,19 @@ public class Main {
         projetoController.removeById(7); */
 
 
-        //* --- TESTE DE CRIAÇÃO DE TAREFA
+        /* --- TESTE DE CRIAÇÃO DE TAREFA
         tarefa.setNome("NOVA TAREFA");
         tarefa.setObservacoes("TAREFA NOVA");
         tarefa.setDescricao("DESCRIÇÃO NOVA");
         tarefa.setProjetoID(5);
-        tarefaController.save(tarefa); //*/
+        tarefaController.save(tarefa); */
 
-        /* --- TESTE DE UPDATE TAREFA
-        tarefa.setTarefaID(4);
+        //* --- TESTE DE UPDATE TAREFA
+        tarefa.setTarefaID(5);
         tarefa.setNome("NOVO NOME");
         tarefa.setDescricao("NOVA DESCR");
         tarefa.setObservacoes("NOVA OBS");
-        tarefaController.update(tarefa); */
+        tarefaController.update(tarefa); //*/
 
         /* --- TESTE DE DELETAR TAREFA
         tarefaController.removeById(4);*/
