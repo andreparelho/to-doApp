@@ -24,14 +24,14 @@ public class Main {
         projeto.setDescricao("DESCRIPTION");
         projetoController.save(projeto);*/
 
-       //* --- TESTE DE UPDATE PROJETO
+       /* --- TESTE DE UPDATE PROJETO
         projeto.setProjetoID(7);
         projeto.setNome("NOVO NOME DO PROJETO");
         projeto.setDescricao("DESCRICPTION NOVA");
-        projetoController.update(projeto); //*/
+        projetoController.update(projeto); */
 
-        /* --- TESTE DE REMOVER PROJETO
-        projetoController.removeById(6); */
+        //* --- TESTE DE REMOVER PROJETO
+        projetoController.removeById(7); //*/
 
 
         /* --- TESTE DE CRIAÇÃO DE TAREFA
