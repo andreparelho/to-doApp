@@ -2,6 +2,7 @@
 import controller.ProjetoController;
 import controller.TarefaController;
 import java.sql.Connection;
+import java.sql.SQLException;
 import model.Projeto;
 import model.Tarefa;
 import util.ConnectionDataBase;
@@ -9,7 +10,7 @@ import util.ConnectionDataBase;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         /*Connection connection = ConnectionDataBase.getConnection();
         ConnectionDataBase.closeConnection(connection);*/
         
@@ -30,16 +31,16 @@ public class Main {
         projeto.setDescricao("DESCRICPTION NOVA");
         projetoController.update(projeto); */
 
-        //* --- TESTE DE REMOVER PROJETO
-        projetoController.removeById(7); //*/
+        /* --- TESTE DE REMOVER PROJETO
+        projetoController.removeById(7); */
 
 
-        /* --- TESTE DE CRIAÇÃO DE TAREFA
+        //* --- TESTE DE CRIAÇÃO DE TAREFA
         tarefa.setNome("NOVA TAREFA");
         tarefa.setObservacoes("TAREFA NOVA");
         tarefa.setDescricao("DESCRIÇÃO NOVA");
         tarefa.setProjetoID(5);
-        tarefaController.save(tarefa); */
+        tarefaController.save(tarefa); //*/
 
         /* --- TESTE DE UPDATE TAREFA
         tarefa.setTarefaID(4);
