@@ -53,7 +53,8 @@ public class ConnectionDataBase {
             if (preparedStatement != null) {
                 preparedStatement.close();
             }
-            if (resultSet != null) {
+            if (resultSet == null) {
+            } else {
                 resultSet.close();
             }
         } catch (SQLException exception) {
