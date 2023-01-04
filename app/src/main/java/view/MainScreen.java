@@ -178,6 +178,14 @@ public class MainScreen extends javax.swing.JFrame {
         JLabelTarefaTitulo.setText("Tarefas");
 
         JLabelTarefaIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-mais-20.png")); // NOI18N
+        JLabelTarefaIMG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelTarefaIMGMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLabelTarefaIMGMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelTarefaLayout = new javax.swing.GroupLayout(JPanelTarefa);
         JPanelTarefa.setLayout(JPanelTarefaLayout);
@@ -334,6 +342,16 @@ public class MainScreen extends javax.swing.JFrame {
         jDialogScreenProjeto.setVisible(true);
     }//GEN-LAST:event_JLabelProjetoIMGMouseClicked
 
+    private void JLabelTarefaIMGMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLabelTarefaIMGMouseEntered
+
+    private void JLabelTarefaIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseClicked
+        JDialogScreenTarefa jDialogScreenTarefa = new JDialogScreenTarefa (this, rootPaneCheckingEnabled);
+        jDialogScreenTarefa.setProjeto(null);
+        jDialogScreenTarefa.setVisible(true);
+    }//GEN-LAST:event_JLabelTarefaIMGMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -380,25 +398,10 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelListaVazia;
     private javax.swing.JPanel JPanelProjeto;
     private javax.swing.JPanel JPanelTabelaTarefas;
-    private javax.swing.JPanel JPanelTabelaTarefas1;
-    private javax.swing.JPanel JPanelTabelaTarefas2;
-    private javax.swing.JPanel JPanelTabelaTarefas3;
-    private javax.swing.JPanel JPanelTabelaTarefas4;
-    private javax.swing.JPanel JPanelTabelaTarefas5;
     private javax.swing.JPanel JPanelTarefa;
     private javax.swing.JScrollPane JScrollPaneProjetos;
     private javax.swing.JScrollPane JScrollPaneTabelaTarefa;
-    private javax.swing.JScrollPane JScrollPaneTabelaTarefa1;
-    private javax.swing.JScrollPane JScrollPaneTabelaTarefa2;
-    private javax.swing.JScrollPane JScrollPaneTabelaTarefa3;
-    private javax.swing.JScrollPane JScrollPaneTabelaTarefa4;
-    private javax.swing.JScrollPane JScrollPaneTabelaTarefa5;
     private javax.swing.JTable JTableTarefas;
-    private javax.swing.JTable JTableTarefas1;
-    private javax.swing.JTable JTableTarefas2;
-    private javax.swing.JTable JTableTarefas3;
-    private javax.swing.JTable JTableTarefas4;
-    private javax.swing.JTable JTableTarefas5;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
