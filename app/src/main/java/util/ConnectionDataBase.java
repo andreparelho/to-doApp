@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConnectionDataBase {
 
-    public static final String DRIVER = "com.mysql.jdbc.Driver"; //especificando que vamos usar o jdbc do mysql
+    public static final String DRIVER = "com.mysql.cj.jdbc.Driver"; //especificando que vamos usar o jdbc do mysql
     public static final String URL = "jdbc:mysql://localhost:3306/db_todoapp"; //url do caminho da minha application até a minha database.
     public static final String USER = "root"; //user mysql
     public static final String PASS = "root"; //senha mysql
