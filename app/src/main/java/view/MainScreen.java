@@ -2,8 +2,15 @@
 
 package view;
 
+import controller.ProjetoController;
+import controller.TarefaController;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import model.Projeto;
 
 /**
  *
@@ -11,11 +18,16 @@ import java.awt.Font;
  */
 public class MainScreen extends javax.swing.JFrame {
 
+    ProjetoController projetoController;
+    TarefaController tarefaController;
     
+    DefaultListModel projetoDefaultListModel;
     
     public MainScreen() {
         initComponents();
         DecorationTarefas();
+        inicDataController();
+        inicModelComponentes();
     }
 
     /**
@@ -115,10 +127,10 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(JLabelCabecalhoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelCabecalhoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
             .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
-                .addComponent(JLabelCabecalhoSubtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(JLabelCabecalhoSubtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         JPanelCabecalhoLayout.setVerticalGroup(
             JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,8 +171,7 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelProjetoLayout.setHorizontalGroup(
             JPanelProjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelProjetoLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -177,6 +188,7 @@ public class MainScreen extends javax.swing.JFrame {
         JLabelTarefaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelTarefaTitulo.setText("Tarefas");
 
+        JLabelTarefaIMG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelTarefaIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-mais-20.png")); // NOI18N
         JLabelTarefaIMG.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,8 +207,8 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         JPanelTarefaLayout.setVerticalGroup(
             JPanelTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,11 +224,6 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelLista.setBackground(new java.awt.Color(255, 255, 255));
 
         JListProjetos.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        JListProjetos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         JListProjetos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         JListProjetos.setFixedCellHeight(20);
         JListProjetos.setSelectionBackground(new java.awt.Color(0, 51, 255));
@@ -340,6 +347,13 @@ public class MainScreen extends javax.swing.JFrame {
     private void JLabelProjetoIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelProjetoIMGMouseClicked
         JDialogScreenProjeto jDialogScreenProjeto = new JDialogScreenProjeto(this, rootPaneCheckingEnabled);
         jDialogScreenProjeto.setVisible(true);
+        
+        jDialogScreenProjeto.addWindowListener(new WindowAdapter (){
+        @Override
+        public void windowClosed(WindowEvent windowEvent){
+            carregarProjetos();
+        }
+    });      
     }//GEN-LAST:event_JLabelProjetoIMGMouseClicked
 
     private void JLabelTarefaIMGMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseEntered
@@ -405,12 +419,33 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
+    /*Customização da Lista de Tarefas*/
   public void DecorationTarefas(){
-      /*Customização da Lista de Tarefas*/
       JTableTarefas.getTableHeader().setFont(new Font("Verdana", Font.BOLD, 14));
       JTableTarefas.getTableHeader().setBackground(new Color(0,51,255));
       JTableTarefas.getTableHeader().setForeground(new Color (255, 255, 255));
       JTableTarefas.setAutoCreateRowSorter(true);
     
 }
+  
+  public void inicDataController(){
+      projetoController = new ProjetoController();
+      tarefaController = new TarefaController();
+  }
+  
+  public void inicModelComponentes(){
+      projetoDefaultListModel = new DefaultListModel();
+      carregarProjetos();
+  }
+  
+  public void carregarProjetos(){
+      List<Projeto> projetos = projetoController.getAll();
+      projetoDefaultListModel.clear();
+      for (int i = 0; i < projetos.size(); i++) {
+          Projeto projeto = projetos.get(i);
+          projetoDefaultListModel.addElement(projeto);
+      }
+      JListProjetos.setModel(projetoDefaultListModel);
+  }
+  
 }
