@@ -348,7 +348,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void JLabelTarefaIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseClicked
         JDialogScreenTarefa jDialogScreenTarefa = new JDialogScreenTarefa (this, rootPaneCheckingEnabled);
-        //jDialogScreenTarefa.setProjeto(null);
+        jDialogScreenTarefa.setProjeto(null);
         jDialogScreenTarefa.setVisible(true);
     }//GEN-LAST:event_JLabelTarefaIMGMouseClicked
 

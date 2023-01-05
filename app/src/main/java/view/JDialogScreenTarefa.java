@@ -171,7 +171,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
     private void JLabelTarefaIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseClicked
         try {
         Tarefa tarefa = new Tarefa();
-        tarefa.setProjetoID(8);
+        tarefa.setProjetoID(projeto.getProjetoID());
         
         tarefa.setNome(JTextFieldNome.getText());
         tarefa.setDescricao(JTextFieldDescricao.getText());
