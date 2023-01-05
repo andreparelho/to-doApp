@@ -45,10 +45,10 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
         JLabelDadoslDescricao = new javax.swing.JLabel();
         JTextFieldDescricao = new javax.swing.JTextField();
         JLabelDadosPrazo = new javax.swing.JLabel();
-        JFormattedTextFieldPrazo = new javax.swing.JFormattedTextField();
         JLabelDadosObs = new javax.swing.JLabel();
         JScrollPaneDadosObs = new javax.swing.JScrollPane();
         JTextAreaObs = new javax.swing.JTextArea();
+        jFormattedTextFieldPrazo = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -101,8 +101,6 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
         JLabelDadosPrazo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         JLabelDadosPrazo.setText("Prazo");
 
-        JFormattedTextFieldPrazo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
         JLabelDadosObs.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         JLabelDadosObs.setText("Observações");
 
@@ -114,20 +112,20 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
         JPanelDadosTarefa.setLayout(JPanelDadosTarefaLayout);
         JPanelDadosTarefaLayout.setHorizontalGroup(
             JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelDadosTarefaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelDadosTarefaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JTextFieldDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JTextFieldNome, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JScrollPaneDadosObs, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addGroup(JPanelDadosTarefaLayout.createSequentialGroup()
+                .addGroup(JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jFormattedTextFieldPrazo)
+                    .addComponent(JTextFieldDescricao)
+                    .addComponent(JTextFieldNome)
+                    .addComponent(JScrollPaneDadosObs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelDadosTarefaLayout.createSequentialGroup()
                         .addGroup(JPanelDadosTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLabelDadosNome)
                             .addComponent(JLabelDadoslDescricao)
                             .addComponent(JLabelDadosPrazo)
                             .addComponent(JLabelDadosObs))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(JFormattedTextFieldPrazo))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JPanelDadosTarefaLayout.setVerticalGroup(
@@ -143,9 +141,9 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
                 .addComponent(JTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelDadosPrazo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JFormattedTextFieldPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
+                .addComponent(jFormattedTextFieldPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(JLabelDadosObs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JScrollPaneDadosObs)
@@ -173,7 +171,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
     private void JLabelTarefaIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseClicked
         try {
         Tarefa tarefa = new Tarefa();
-        projeto.setProjetoID(projeto.getProjetoID());
+        tarefa.setProjetoID(8);
         
         tarefa.setNome(JTextFieldNome.getText());
         tarefa.setDescricao(JTextFieldDescricao.getText());
@@ -182,7 +180,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
             
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date prazo = null;
-        prazo = dateFormat.parse(JFormattedTextFieldPrazo.getText());
+        prazo = dateFormat.parse(jFormattedTextFieldPrazo.getText());
         tarefa.setPrazo(prazo);
         
         tarefaController.save(tarefa);
@@ -240,7 +238,6 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField JFormattedTextFieldPrazo;
     private javax.swing.JLabel JLabelDadosNome;
     private javax.swing.JLabel JLabelDadosObs;
     private javax.swing.JLabel JLabelDadosPrazo;
@@ -253,6 +250,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
     private javax.swing.JTextArea JTextAreaObs;
     private javax.swing.JTextField JTextFieldDescricao;
     private javax.swing.JTextField JTextFieldNome;
+    private javax.swing.JFormattedTextField jFormattedTextFieldPrazo;
     // End of variables declaration//GEN-END:variables
 
     public void setProjeto(Projeto projeto) {
