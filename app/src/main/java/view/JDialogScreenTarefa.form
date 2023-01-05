@@ -83,7 +83,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\parel\Downloads\icons8-mais-20.png"/>
+              <Image iconType="2" name="C:\Users\parel\Downloads\icons8-selecionado-20.png"/>
             </Property>
           </Properties>
           <Events>
@@ -102,13 +102,14 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jFormattedTextFieldPrazo" max="32767" attributes="0"/>
                       <Component id="JTextFieldDescricao" alignment="1" max="32767" attributes="0"/>
                       <Component id="JTextFieldNome" alignment="1" max="32767" attributes="0"/>
                       <Component id="JScrollPaneDadosObs" alignment="0" pref="388" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="JLabelDadosNome" min="-2" max="-2" attributes="0"/>
                               <Component id="JLabelDadoslDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -117,7 +118,6 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="JFormattedTextFieldPrazo" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -136,9 +136,9 @@
                   <Component id="JTextFieldDescricao" min="-2" pref="79" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="JLabelDadosPrazo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="JFormattedTextFieldPrazo" min="-2" pref="39" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldPrazo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="JLabelDadosObs" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="JScrollPaneDadosObs" max="32767" attributes="0"/>
@@ -179,13 +179,6 @@
             <Property name="text" type="java.lang.String" value="Prazo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="JFormattedTextFieldPrazo">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="0" type="1"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="JLabelDadosObs">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -209,6 +202,8 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldPrazo">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
