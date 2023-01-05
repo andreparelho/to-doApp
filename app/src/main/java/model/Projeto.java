@@ -24,13 +24,7 @@ public class Projeto {
 
     @Override
     public String toString() {
-        return "Projeto{" +
-                "projetoID=" + projetoID +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", dataCriacao=" + dataCriacao +
-                ", dataAtt=" + dataAtt +
-                '}';
+        return this.nome;
     }
 
     public int getProjetoID() {
