@@ -61,7 +61,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
         JLabelTarefaTitulo.setText("Tarefas");
 
         JLabelTarefaIMG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelTarefaIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-mais-20.png")); // NOI18N
+        JLabelTarefaIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\parel\\Downloads\\icons8-selecionado-20.png")); // NOI18N
         JLabelTarefaIMG.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JLabelTarefaIMGMouseClicked(evt);
