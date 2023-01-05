@@ -1,5 +1,3 @@
-
-
 package view;
 
 import controller.ProjetoController;
@@ -9,19 +7,23 @@ import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
+import java.util.Set;
 import javax.swing.DefaultListModel;
 import model.Projeto;
+import model.Tarefa;
+import util.TarefaModelTabela;
 
 /**
  *
  * @author parel
  */
 public class MainScreen extends javax.swing.JFrame {
-
+    
     ProjetoController projetoController;
     TarefaController tarefaController;
     
     DefaultListModel projetoDefaultListModel;
+    TarefaModelTabela tarefaModelTabela;
     
     public MainScreen() {
         initComponents();
@@ -294,6 +296,8 @@ public class MainScreen extends javax.swing.JFrame {
         JTableTarefas.setGridColor(new java.awt.Color(204, 204, 204));
         JTableTarefas.setSelectionBackground(new java.awt.Color(0, 51, 255));
         JTableTarefas.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        JTableTarefas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        JTableTarefas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         JTableTarefas.setShowGrid(true);
         JScrollPaneTabelaTarefa.setViewportView(JTableTarefas);
 
@@ -348,12 +352,12 @@ public class MainScreen extends javax.swing.JFrame {
         JDialogScreenProjeto jDialogScreenProjeto = new JDialogScreenProjeto(this, rootPaneCheckingEnabled);
         jDialogScreenProjeto.setVisible(true);
         
-        jDialogScreenProjeto.addWindowListener(new WindowAdapter (){
-        @Override
-        public void windowClosed(WindowEvent windowEvent){
-            carregarProjetos();
-        }
-    });      
+        jDialogScreenProjeto.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent windowEvent) {
+                carregarProjetos();
+            }
+        });        
     }//GEN-LAST:event_JLabelProjetoIMGMouseClicked
 
     private void JLabelTarefaIMGMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseEntered
@@ -361,7 +365,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_JLabelTarefaIMGMouseEntered
 
     private void JLabelTarefaIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTarefaIMGMouseClicked
-        JDialogScreenTarefa jDialogScreenTarefa = new JDialogScreenTarefa (this, rootPaneCheckingEnabled);
+        JDialogScreenTarefa jDialogScreenTarefa = new JDialogScreenTarefa(this, rootPaneCheckingEnabled);
         jDialogScreenTarefa.setProjeto(null);
         jDialogScreenTarefa.setVisible(true);
     }//GEN-LAST:event_JLabelTarefaIMGMouseClicked
@@ -386,7 +390,7 @@ public class MainScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -420,32 +424,41 @@ public class MainScreen extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /*Customização da Lista de Tarefas*/
-  public void DecorationTarefas(){
-      JTableTarefas.getTableHeader().setFont(new Font("Verdana", Font.BOLD, 14));
-      JTableTarefas.getTableHeader().setBackground(new Color(0,51,255));
-      JTableTarefas.getTableHeader().setForeground(new Color (255, 255, 255));
-      JTableTarefas.setAutoCreateRowSorter(true);
+    public void DecorationTarefas() {
+        JTableTarefas.getTableHeader().setFont(new Font("Verdana", Font.BOLD, 14));
+        JTableTarefas.getTableHeader().setBackground(new Color(0, 51, 255));
+        JTableTarefas.getTableHeader().setForeground(new Color(255, 255, 255));
+        JTableTarefas.setAutoCreateRowSorter(true);
+        
+    }
     
-}
-  
-  public void inicDataController(){
-      projetoController = new ProjetoController();
-      tarefaController = new TarefaController();
-  }
-  
-  public void inicModelComponentes(){
-      projetoDefaultListModel = new DefaultListModel();
-      carregarProjetos();
-  }
-  
-  public void carregarProjetos(){
-      List<Projeto> projetos = projetoController.getAll();
-      projetoDefaultListModel.clear();
-      for (int i = 0; i < projetos.size(); i++) {
-          Projeto projeto = projetos.get(i);
-          projetoDefaultListModel.addElement(projeto);
-      }
-      JListProjetos.setModel(projetoDefaultListModel);
-  }
-  
+    public void inicDataController() {
+        projetoController = new ProjetoController();
+        tarefaController = new TarefaController();
+    }
+    
+    public void inicModelComponentes() {
+        projetoDefaultListModel = new DefaultListModel();
+        carregarProjetos();
+        tarefaModelTabela = new TarefaModelTabela();
+        JTableTarefas.setModel(tarefaModelTabela);
+        carregarTarefas(8);
+    }
+    
+    public void carregarTarefas(int projetoID) {
+        List<Tarefa> tarefas = tarefaController.getAll(projetoID);
+        tarefaModelTabela.setTarefas(tarefas);
+        
+    }
+    
+    public void carregarProjetos() {
+        List<Projeto> projetos = projetoController.getAll();
+        projetoDefaultListModel.clear();
+        for (int i = 0; i < projetos.size(); i++) {
+            Projeto projeto = projetos.get(i);
+            projetoDefaultListModel.addElement(projeto);
+        }
+        JListProjetos.setModel(projetoDefaultListModel);
+    }
+    
 }
