@@ -11,11 +11,11 @@ import java.awt.Font;
  */
 public class MainScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainScreen
-     */
+    
+    
     public MainScreen() {
         initComponents();
+        DecorationTarefas();
     }
 
     /**
