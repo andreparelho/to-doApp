@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TarefaController {
-    public void save(Tarefa tarefa) throws SQLException { //vamos receber e salvar os dados que estão no objeto
+    public void save(Tarefa tarefa){ //vamos receber e salvar os dados que estão no objeto
         String sql = "INSERT INTO tb_tarefa " +
                 "(projetoID, " +
                 "nome_tarefa, " +
@@ -41,7 +41,7 @@ public class TarefaController {
         }
     }
 
-    public void update(Tarefa tarefa) throws SQLException { //vamos atualizar os dados do objeto
+    public void update(Tarefa tarefa){ //vamos atualizar os dados do objeto
         String sql = "UPDATE tb_tarefa SET " +
                 "nome_tarefa = ?," +
                 "descricao_tarefa = ?," +
@@ -73,7 +73,7 @@ public class TarefaController {
         }
     }
 
-    public void removeById(int tarefaID) throws SQLException {
+    public void removeById(int tarefaID){
         String sql = "DELETE FROM tb_tarefa WHERE tarefaID = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
