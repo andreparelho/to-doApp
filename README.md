@@ -39,9 +39,9 @@ Este é um aplicativo de tarefas simples feito em Java, Java Swing, MySQL e Grad
 - Você também pode editar ou excluir uma tarefa existente clicando nos iconns "Editar" ou "Excluir" à direita da tarefa.
 
 ## Arquitetura
-A arquitetura do TodoApp segue o padrão de projeto MVC (Model-View-Controller). Isso significa que o aplicativo é dividido em três camadas principais:
+A arquitetura do TodoApp segue o padrão de projeto **MVC (Model-View-Controller)**. Isso significa que o aplicativo é dividido em três camadas principais:
 
-**Model:** representa os dados e a lógica de negócios do aplicativo. Nesta camada, encontram-se as entidades do sistema, os DAOs (Data Access Objects) que fazem a persistência dos dados no banco de dados MySQL e os serviços que implementam as regras de negócio.
+**Model:** representa os dados e a lógica de negócios do aplicativo. Nesta camada, encontram-se as entidades do sistema, os `DAOs (Data Access Objects)` que fazem a persistência dos dados no banco de dados MySQL e os serviços que implementam as regras de negócio.
 **View:** representa a interface gráfica de usuário (GUI) do aplicativo. Nesta camada, encontram-se os componentes Swing que formam a interface do usuário, como botões, caixas de texto e tabelas.
 **Controller:** faz a ligação entre a model e a view. Ele recebe os eventos gerados pela interface do usuário, como cliques em botões, e os encaminha para a model para processamento. Em seguida, ele atualiza a view com os novos dados.
 
