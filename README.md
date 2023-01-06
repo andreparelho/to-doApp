@@ -1,6 +1,6 @@
 <h1>todoApp</h1>
     <p>O TodoApp é uma aplicação de gerenciamento de tarefas simples, desenvolvida em Java utilizando o framework Java Swing, banco de dados MySQL e o gerenciador de dependências Gradle.</p>
-   ![app](https://imgur.com/a/TqxjIzw)
+   <img src="https://i.imgur.com/0JiCF2Y.png" alt="">
     <h3>Objetivos</h3>
     <ul><li>Desenvolvimento de aplicações Java básico, incluindo a criação de classes e métodos, a manipulação de tipos de dados primitivos e objetos e o uso de estruturas de controle de fluxo.</ul></li>
     <ul><li>Conexão e interação com um banco de dados MySQL, incluindo a execução de consultas SQL e a manipulação de dados utilizando a API JDBC</ul></li>
