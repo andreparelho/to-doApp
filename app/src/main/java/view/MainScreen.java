@@ -1,5 +1,6 @@
 package view;
 
+import util.BotaoCelulaTabela;
 import controller.ProjetoController;
 import controller.TarefaController;
 import java.awt.Color;
@@ -30,9 +31,9 @@ public class MainScreen extends javax.swing.JFrame {
 
     public MainScreen() {
         initComponents();
-        DecorationTarefas();
         inicDataController();
         inicModelComponentes();
+        DecorationTarefas();
     }
 
     /**
@@ -49,6 +50,8 @@ public class MainScreen extends javax.swing.JFrame {
         JLabelListaIMG = new javax.swing.JLabel();
         JLabelListaTexto1 = new javax.swing.JLabel();
         JLabelListaTexto2 = new javax.swing.JLabel();
+        JScrollPaneTabelaTarefa = new javax.swing.JScrollPane();
+        JTableTarefas = new javax.swing.JTable();
         JPanelCabecalho = new javax.swing.JPanel();
         JLabelCabecalhoTitulo = new javax.swing.JLabel();
         JLabelCabecalhoSubtitulo = new javax.swing.JLabel();
@@ -63,8 +66,6 @@ public class MainScreen extends javax.swing.JFrame {
         JScrollPaneProjetos = new javax.swing.JScrollPane();
         JListProjetos = new javax.swing.JList<>();
         JPanelTabelaTarefas = new javax.swing.JPanel();
-        JScrollPaneTabelaTarefa = new javax.swing.JScrollPane();
-        JTableTarefas = new javax.swing.JTable();
 
         JPanelListaVazia.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -106,6 +107,67 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(JLabelListaTexto2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(158, Short.MAX_VALUE))
         );
+
+        JTableTarefas.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        JTableTarefas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Descrição", "Prazo", "Tarefa Concluida"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        JTableTarefas.setGridColor(new java.awt.Color(204, 204, 204));
+        JTableTarefas.setSelectionBackground(new java.awt.Color(0, 51, 255));
+        JTableTarefas.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        JTableTarefas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        JTableTarefas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        JTableTarefas.setShowGrid(true);
+        JTableTarefas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTableTarefasMouseClicked(evt);
+            }
+        });
+        JScrollPaneTabelaTarefa.setViewportView(JTableTarefas);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 600));
@@ -248,7 +310,7 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelLista.setLayout(JPanelListaLayout);
         JPanelListaLayout.setHorizontalGroup(
             JPanelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JScrollPaneProjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+            .addComponent(JScrollPaneProjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
         );
         JPanelListaLayout.setVerticalGroup(
             JPanelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,69 +319,6 @@ public class MainScreen extends javax.swing.JFrame {
 
         JPanelTabelaTarefas.setBackground(new java.awt.Color(255, 255, 255));
         JPanelTabelaTarefas.setLayout(new java.awt.BorderLayout());
-
-        JTableTarefas.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        JTableTarefas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Descrição", "Prazo", "Tarefa Concluida"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        JTableTarefas.setGridColor(new java.awt.Color(204, 204, 204));
-        JTableTarefas.setSelectionBackground(new java.awt.Color(0, 51, 255));
-        JTableTarefas.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        JTableTarefas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        JTableTarefas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        JTableTarefas.setShowGrid(true);
-        JTableTarefas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTableTarefasMouseClicked(evt);
-            }
-        });
-        JScrollPaneTabelaTarefa.setViewportView(JTableTarefas);
-
-        JPanelTabelaTarefas.add(JScrollPaneTabelaTarefa, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -403,14 +402,14 @@ public class MainScreen extends javax.swing.JFrame {
                     tarefaController.update(tarefa);
                     break;
                 case 4:
+                    
                     break;
-                case 5:
-                    tarefaController.removeById(tarefa.getProjetoID());
+                case 5:                   
+                    tarefaController.removeById(tarefa.getTarefaID());
                     tarefaModelTabela.getTarefas().remove(tarefa);
                     int projectIndex = JListProjetos.getSelectedIndex();
                     Projeto projeto = (Projeto) projetoDefaultListModel.get(projectIndex);
                     carregarTarefas(projeto.getProjetoID());
-                    
                     break;
                 default:
                     break;
@@ -485,7 +484,11 @@ public class MainScreen extends javax.swing.JFrame {
         JTableTarefas.getTableHeader().setFont(new Font("Verdana", Font.BOLD, 14));
         JTableTarefas.getTableHeader().setBackground(new Color(0, 51, 255));
         JTableTarefas.getTableHeader().setForeground(new Color(255, 255, 255));
-        JTableTarefas.setAutoCreateRowSorter(true);
+        //JTableTarefas.setAutoCreateRowSorter(true);
+        
+        JTableTarefas.getColumnModel().getColumn(4).setCellRenderer(new BotaoCelulaTabela("edit"));       
+        JTableTarefas.getColumnModel().getColumn(5).setCellRenderer(new BotaoCelulaTabela("delete"));
+        
     }
 
     public void inicDataController() {
@@ -545,5 +548,4 @@ public class MainScreen extends javax.swing.JFrame {
         }
         JListProjetos.setModel(projetoDefaultListModel);
     }
-
 }
