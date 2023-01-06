@@ -43,7 +43,7 @@
         <li>Controller: faz a ligação entre a model e a view. Ele recebe os eventos gerados pela interface do usuário, como cliques em botões, e os encaminha para a model para processamento. Em seguida, ele atualiza a view com os novos dados.</li>
     </ol>
     <h3>A seguir, um diagrama mostrando a arquitetura do TodoApp:</h3>
-    (```+------------+       +---------------+       +------------+
+    ```+------------+       +---------------+       +------------+
 |  Database  |<----->|  DAO Classes  |<----->| Entity  |
 +------------+       +---------------+       +------------+
                               |
@@ -55,7 +55,7 @@
   |----------|                |                  |  Logic
 +------------+                |                +------------+
 |  View      |                |                |  Services  |
-+------------+                |                +------------+```)
++------------+                |                +------------+```
     <h2>Implementações Futuras</h2>
 <ul>
     <li>Adição de um sistema de login para que os usuários possam gerenciar suas tarefas de forma privada</li>
