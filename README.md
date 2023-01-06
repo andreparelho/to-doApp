@@ -2,6 +2,7 @@
 Este é um aplicativo de tarefas simples feito em Java, Java Swing, MySQL e Gradle. Ele permite que você crie uma lista de tarefas a serem realizadas e as marque como concluídas quando estiverem prontas. Ele também fornece uma interface gráfica de usuário (GUI) para facilitar o uso.
 
 ![app](https://i.imgur.com/W2L0rA2.png)
+![appAtt](https://i.imgur.com/NeHeTA6.png)
 
 ## Objetivos
 - Desenvolvimento de aplicações Java básico, incluindo a criação de classes e métodos, a manipulação de tipos de dados primitivos e objetos e o uso de estruturas de controle de fluxo.
@@ -19,6 +20,9 @@ Este é um aplicativo de tarefas simples feito em Java, Java Swing, MySQL e Grad
 - Editar tarefas existentes
 - Atualizar tarefas
 - Excluir tarefas
+
+![new project](https://i.imgur.com/OYnOIwI.png)
+![new task](https://i.imgur.com/4T2wLE9.png)
 
 ## Requisitos
 - Java 8 ou superior
