@@ -35,7 +35,7 @@
     <p>Para marcar uma tarefa como concluída, basta clicar na caixa de seleção da tarefa e ela será marcada como concluída.</p>
     <p> </p>
     <p>Você também pode editar ou excluir uma tarefa existente clicando nos iconns "Editar" ou "Excluir" à direita da tarefa.</p>
-    <h2>Arquitetura/h2<>
+    <h2>Arquitetura</h2>
     <p>A arquitetura do TodoApp segue o padrão de projeto <strong>MVC (Model-View-Controller)</strong>. Isso significa que o aplicativo é dividido em três camadas principais:</p>
     <ol>
         <li>Model: representa os dados e a lógica de negócios do aplicativo. Nesta camada, encontram-se as entidades do sistema, os DAOs (Data Access Objects) que fazem a persistência dos dados no banco de dados MySQL e os serviços que implementam as regras de negócio.</li>
@@ -43,7 +43,7 @@
         <li>Controller: faz a ligação entre a model e a view. Ele recebe os eventos gerados pela interface do usuário, como cliques em botões, e os encaminha para a model para processamento. Em seguida, ele atualiza a view com os novos dados.</li>
     </ol>
     <h3>A seguir, um diagrama mostrando a arquitetura do TodoApp:</h3>
-    (```)+------------+       +---------------+       +------------+
+    (```+------------+       +---------------+       +------------+
 |  Database  |<----->|  DAO Classes  |<----->| Entity  |
 +------------+       +---------------+       +------------+
                               |
@@ -55,8 +55,7 @@
   |----------|                |                  |  Logic
 +------------+                |                +------------+
 |  View      |                |                |  Services  |
-+------------+                |                +------------+
-(```)
++------------+                |                +------------+```)
     <h2>Implementações Futuras</h2>
 <ul>
     <li>Adição de um sistema de login para que os usuários possam gerenciar suas tarefas de forma privada</li>
