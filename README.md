@@ -1,5 +1,6 @@
 # todoApp
 Este é um aplicativo de tarefas simples feito em Java, Java Swing, MySQL e Gradle. Ele permite que você crie uma lista de tarefas a serem realizadas e as marque como concluídas quando estiverem prontas. Ele também fornece uma interface gráfica de usuário (GUI) para facilitar o uso.
+
 ![app](https://i.imgur.com/W2L0rA2.png)
 
 ## Objetivos
@@ -47,15 +48,15 @@ A arquitetura do TodoApp segue o padrão de projeto MVC (Model-View-Controller).
 ### A seguir, um diagrama mostrando a arquitetura do TodoApp:
 ```
 +------------+       +---------------+       +------------+
-|  Database  |<----->|  DAO Classes  |<----->| Entity  |
+|  Database  |<----->|  DAO Classes  |<----->| Entity     |
 +------------+       +---------------+       +------------+
                               |
                               |
 +------------+                |                +------------+
 |  GUI       |                |                | Controller |
 +------------+                |                +------------+
-  |  Events  |                |                  |  Business
-  |----------|                |                  |  Logic
+  |  Events  |                |                  |  Business|
+  |----------|                |                  |  Logic   |
 +------------+                |                +------------+
 |  View      |                |                |  Services  |
 +------------+                |                +------------+
