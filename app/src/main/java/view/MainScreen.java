@@ -177,7 +177,7 @@ public class MainScreen extends javax.swing.JFrame {
         JLabelCabecalhoTitulo.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         JLabelCabecalhoTitulo.setForeground(new java.awt.Color(255, 255, 255));
         JLabelCabecalhoTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCabecalhoTitulo.setText("Todo App");
+        JLabelCabecalhoTitulo.setText("To-do App");
         JLabelCabecalhoTitulo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         JLabelCabecalhoSubtitulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -310,7 +310,7 @@ public class MainScreen extends javax.swing.JFrame {
         JPanelLista.setLayout(JPanelListaLayout);
         JPanelListaLayout.setHorizontalGroup(
             JPanelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JScrollPaneProjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+            .addComponent(JScrollPaneProjetos, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
         );
         JPanelListaLayout.setVerticalGroup(
             JPanelListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
