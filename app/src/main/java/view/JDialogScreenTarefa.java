@@ -20,6 +20,9 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
 
     TarefaController tarefaController;
     Projeto projeto;
+    int tarefaIDNew = 0;
+    boolean statusNewTarefa = false;
+    
     
     public JDialogScreenTarefa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -254,5 +257,16 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
 
     public void setProjeto(Projeto projeto) {
         this.projeto = projeto;
+    }
+    
+    public void carregarDados(Tarefa tarefa) {
+        JTextFieldNome.setText(tarefa.getNome());
+        JTextFieldDescricao.setText(tarefa.getDescricao());
+        JTextAreaObs.setText(tarefa.getObservacoes());
+        
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        jFormattedTextFieldPrazo.setText(simpleDateFormat.format(tarefa.getPrazo()));
+        
+        tarefaIDNew = tarefa.getTarefaID();
     }
 }
