@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TarefaController {
-    public void save(Tarefa tarefa){ //vamos receber e salvar os dados que estão no objeto
+    public void save(Tarefa tarefa){
         String sql = "INSERT INTO tb_tarefa " +
                 "(projetoID, " +
                 "nome_tarefa, " +
@@ -41,7 +41,7 @@ public class TarefaController {
         }
     }
 
-    public void update(Tarefa tarefa){ //vamos atualizar os dados do objeto
+    public void update(Tarefa tarefa){
         String sql = "UPDATE tb_tarefa SET " +
                 "nome_tarefa = ?," +
                 "descricao_tarefa = ?," +
@@ -55,7 +55,7 @@ public class TarefaController {
         PreparedStatement preparedStatement = null;
 
         try {
-            connection = ConnectionDataBase.getConnection(); //Conexão com o Database
+            connection = ConnectionDataBase.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, tarefa.getNome());
             preparedStatement.setString(2, tarefa.getDescricao());
@@ -80,17 +80,17 @@ public class TarefaController {
 
         try {
             connection = ConnectionDataBase.getConnection();
-            preparedStatement = connection.prepareStatement(sql); //objeto que prepara o comando sql
-            preparedStatement.setInt(1, tarefaID); //setar o valor numerico no = ?, substituir o valor ? pelo Id da Tarefa.
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, tarefaID);
             preparedStatement.execute();
         } catch (Exception exception) {
             throw new RuntimeException("Erro ao deletar a tarefa" + exception.getMessage(), exception);
         } finally {
-            ConnectionDataBase.closeConnection(connection, preparedStatement); //bloco que sempre sera inicializado
+            ConnectionDataBase.closeConnection(connection, preparedStatement);
         }
     }
 
-    public List<Tarefa> getAll(int projetoID) { //listar todas as tarefas
+    public List<Tarefa> getAll(int projetoID) {
         String sql = "SELECT * FROM tb_tarefa WHERE projetoID = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -99,11 +99,11 @@ public class TarefaController {
 
         try {
             connection = ConnectionDataBase.getConnection();
-            preparedStatement = connection.prepareStatement(sql); //objeto que prepara o comando sql
-            preparedStatement.setInt(1, projetoID); //setar o valor numerico no = ?, substituir o valor ? pelo Id da Tarefa.
-            resultSet = preparedStatement.executeQuery(); //variavel que vai guardar a resposta do db
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, projetoID);
+            resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) { //laço de repeticão para percorrer todos os valores do ResultSet (equanto houver valores)
+            while (resultSet.next()) {
                 Tarefa tarefa = new Tarefa();
 
                 tarefa.setTarefaID(resultSet.getInt("tarefaID"));
