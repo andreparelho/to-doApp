@@ -52,7 +52,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        JPanelTarefa.setBackground(new java.awt.Color(51, 51, 255));
+        JPanelTarefa.setBackground(new java.awt.Color(0, 51, 255));
 
         JLabelTarefaTitulo.setBackground(new java.awt.Color(0, 153, 153));
         JLabelTarefaTitulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -73,8 +73,7 @@ public class JDialogScreenTarefa extends javax.swing.JDialog {
         JPanelTarefaLayout.setHorizontalGroup(
             JPanelTarefaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelTarefaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JLabelTarefaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelTarefaIMG, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
         );
