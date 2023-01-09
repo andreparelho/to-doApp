@@ -150,14 +150,18 @@ public class JDialogScreenProjeto extends javax.swing.JDialog {
 
     private void JLabelProjetoIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelProjetoIMGMouseClicked
         try {
+            if (!JTextFieldNome.getText().equals("")) {
             Projeto projeto = new Projeto();
             projeto.setNome(JTextFieldNome.getText());
             projeto.setDescricao(JTextAreaDescricao.getText());
             projetoController.save(projeto);
-            JOptionPane.showMessageDialog(rootPane, "Projeto Salvo");
+            JOptionPane.showMessageDialog(rootPane, "Projeto Salvo ihu!");
+            this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar o projeto =/. Coloque um nome!");
+            }
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(rootPane, exception.getMessage());}
-        this.dispose();
     }//GEN-LAST:event_JLabelProjetoIMGMouseClicked
 
     /**
