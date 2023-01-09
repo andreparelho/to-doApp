@@ -402,7 +402,7 @@ public class MainScreen extends javax.swing.JFrame {
                     tarefaController.update(tarefa);
                     break;
                 case 4:
-                    
+                    editarTarefa(tarefa);
                     break;
                 case 5:                   
                     tarefaController.removeById(tarefa.getTarefaID());
@@ -547,5 +547,24 @@ public class MainScreen extends javax.swing.JFrame {
             projetoDefaultListModel.addElement(projeto);
         }
         JListProjetos.setModel(projetoDefaultListModel);
+    }
+    
+    public void editarTarefa (Tarefa tarefa) {
+        JDialogScreenTarefa jDialogScreenTarefa = new JDialogScreenTarefa(this, rootPaneCheckingEnabled);
+        
+        int projectIndex = JListProjetos.getSelectedIndex();
+        Projeto projeto = (Projeto) projetoDefaultListModel.get(projectIndex);
+        jDialogScreenTarefa.setProjeto(projeto);
+        jDialogScreenTarefa.carregarDados(tarefa);
+        jDialogScreenTarefa.setVisible(true);
+        
+        jDialogScreenTarefa.addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                int projectIndex = JListProjetos.getSelectedIndex();
+                Projeto projeto = (Projeto) projetoDefaultListModel.get(projectIndex);
+                
+                carregarTarefas(projeto.getProjetoID());
+            }
+        });
     }
 }
