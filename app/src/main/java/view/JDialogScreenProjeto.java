@@ -47,7 +47,7 @@ public class JDialogScreenProjeto extends javax.swing.JDialog {
 
         JPanelProjeto.setBackground(new java.awt.Color(0, 51, 255));
 
-        JLabelProjetoTitulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        JLabelProjetoTitulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         JLabelProjetoTitulo.setForeground(java.awt.Color.white);
         JLabelProjetoTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelProjetoTitulo.setText("Projeto");
@@ -65,17 +65,15 @@ public class JDialogScreenProjeto extends javax.swing.JDialog {
         JPanelProjetoLayout.setHorizontalGroup(
             JPanelProjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelProjetoLayout.createSequentialGroup()
-                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         JPanelProjetoLayout.setVerticalGroup(
             JPanelProjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelProjetoLayout.createSequentialGroup()
-                .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JLabelProjetoIMG, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(JLabelProjetoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         JPanelDados.setBackground(java.awt.Color.white);
@@ -150,14 +148,18 @@ public class JDialogScreenProjeto extends javax.swing.JDialog {
 
     private void JLabelProjetoIMGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelProjetoIMGMouseClicked
         try {
+            if (!JTextFieldNome.getText().equals("")) {
             Projeto projeto = new Projeto();
             projeto.setNome(JTextFieldNome.getText());
             projeto.setDescricao(JTextAreaDescricao.getText());
             projetoController.save(projeto);
-            JOptionPane.showMessageDialog(rootPane, "Projeto Salvo");
+            JOptionPane.showMessageDialog(rootPane, "Projeto Salvo ihu!");
+            this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar o projeto =/. Coloque um nome!");
+            }
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(rootPane, exception.getMessage());}
-        this.dispose();
     }//GEN-LAST:event_JLabelProjetoIMGMouseClicked
 
     /**
